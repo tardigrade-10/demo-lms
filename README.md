@@ -3,7 +3,7 @@
 
 LMS using - 
 
-front-end: next13
-UI - chakra
+- front-end: next13
+- UI - chakra
 
 dev branch - dev
