@@ -1,14 +1,16 @@
 "use client"
-import { LucideIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { LucideIcon } from "lucide-react";
 interface SidebarItemProps {
     icon: LucideIcon;
     label: string;
     href: string;
 };
+{/*icon: Icon isiliye kia hai to use it immediately as a component in a return function*/}
 export const SidebarItem = ({
-    icon: Icon, //to use it immediately as a component in a return function
+
+    icon: Icon, 
     label,
     href,
 }: SidebarItemProps) => {
@@ -16,10 +18,12 @@ export const SidebarItem = ({
     const router = useRouter();
 
     const isActive =
-    (pathname ==="/" && href ==="/") ||   //for route page
-    pathname === href ||                  // for exact same page
-    pathname?.startsWith(`${href}/`);     //for subroute of specific route page
-    
+    (pathname ==="/" && href ==="/") ||   
+    pathname === href ||                  
+    pathname?.startsWith(`${href}/`);     
+    {/*for route page*/}
+    {/* for exact same page*/}
+    {/*for subroute of specific route page*/}
     const onClick = () => {
         router.push(href);
     }
@@ -36,7 +40,7 @@ export const SidebarItem = ({
                     isActive && "text-sky-700")}/>
                 {label}
                 </div>
-                <div className={cn("ml-auto opacity-0 border-2 border-sky-700 h-full transition-all", isActive && "opacity-100")}/>
+                <div className={cn("ml-auto opacity-0 border-2 border-sky-700 h-full transition-all", isActive && "opacity-100")}/> {/*sidebar me active page ke waha jo ide me blue border aari woh*/}
         </button>
     )
 }
