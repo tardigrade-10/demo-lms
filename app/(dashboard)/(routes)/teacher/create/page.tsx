@@ -5,7 +5,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {useForm} from "react-hook-form";
 import {useRouter} from "next/router";
 import{
-    Form, FormControl, FormDescription, FormField, FormLabel, FormMessage,
+    Form, FormControl, FormDescription, FormField, FormLabel, FormMessage, FormItem,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,9 +22,31 @@ const CreatePage = () => {
             title: ""
         },
     });
+    const onSubmit =(values: z.infer<typeof formSchema>) => {
+        console.log(values);
+    }
     return (
+        <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
         <div>
-        Create Page!
+            <h1>
+                Name your course
+            </h1>
+            <p>
+                What would you like to name your course? Don&apos;t worry, you can change this later.
+            </p>
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-8">
+                    <FormField control={form.control} name="title" render={({field}) => (<FormItem>
+                        <FormLabel>
+                            Course Title
+                        </FormLabel>
+                        <FormControl>
+                            
+                        </FormControl>
+                    </FormItem>)}/>
+                </form>
+            </Form>
+        </div>
         </div>
       );
 }
