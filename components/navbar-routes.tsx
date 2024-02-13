@@ -8,7 +8,7 @@ export const NavbarRoutes = () =>
 {
     const pathname = usePathname();
 
-    const isTeacherPage = pathname?.startsWith("/teacher"); {/* we can switch to student view*/}
+    const isTeacherPage = pathname?.startsWith("/teacher"); // we can switch to student view
     const isPlayerPage = pathname?.includes("/chapter"); {/*course page*/}
     
     return(
@@ -17,7 +17,7 @@ export const NavbarRoutes = () =>
                 <Link href="/">
                     <Button size= "sm" variant="ghost">
                         <LogOut className="h-4 w-4 mr-2"/>
-                        Exit
+                        Exit 
                     </Button>
                 </Link>
             ) : (

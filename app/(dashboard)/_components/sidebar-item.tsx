@@ -9,7 +9,6 @@ interface SidebarItemProps {
 };
 {/*icon: Icon isiliye kia hai to use it immediately as a component in a return function*/}
 export const SidebarItem = ({
-
     icon: Icon, 
     label,
     href,

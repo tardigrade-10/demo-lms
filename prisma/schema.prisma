@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+//edit it from video - Timing : 1:46
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+model Course {
+  id String @id @default(uuid())
+  userId String //we will get it from clerk
+  title String @db.Text
+  description String? @db.Text  //"?" suggests that it is optional as initially they are not required for creating the course. we can still create a course if we don't have them as they are bot gonna publish , we are just creating a draft and then when we will add all those things written with "?" and mark isPublished as true then the course will be visible to the user(students)
+  imageUrl String? @db.Text
+  price Float?
+  isPublished Boolean @default(false)
+
+  categoryId String?
+  category Category? @relation(fields: [categoryId], references : [id])
+  attachments Attachment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([categoryId])//to fix the error in the line @relation(fields: [categoryId], refrences : [id])
+}
+ 
+model Category{
+  id String @id @default(uuid())
+  name String @unique
+  courses Course[]//one category can have many courses inside it so we have chosen an array for that
+}
+
+model Attachment{
+  id String @id @default(uuid())
+  name String
+  url String @db.Text
+
+  courseId String
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade) //it is refrencing the id field of modal course in line id String @id @default(uuid())
+  // and onaDelete Cascade means that once the course has been deleted then all the attachments linked to that course will also be deleted which have a relation to that course id.
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([courseId])//to fix the error in the line @relation(fields: [courseId], references: [id], onDelete:Cascade)
+}

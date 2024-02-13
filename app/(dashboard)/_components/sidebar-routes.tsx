@@ -30,7 +30,7 @@ export const SidebarRoutes = () =>
 {
     const pathname = usePathname();
     const isTeacherPage = pathname?.includes("/teacher");
-    const routes = isTeacherPage ? teacherRoutes : guestRoutes;
+    const routes = isTeacherPage ? teacherRoutes : guestRoutes; //if pathname includes /teacher then display the sidebar for teacher else display the sidebar with browse and layout feature
     
     return (
         <div className="flex flex-col w-full">
