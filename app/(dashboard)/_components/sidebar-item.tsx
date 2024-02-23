@@ -40,6 +40,6 @@ export const SidebarItem = ({
                 {label}
                 </div>
                 <div className={cn("ml-auto opacity-0 border-2 border-sky-700 h-full transition-all", isActive && "opacity-100")}/> {/*sidebar me active page ke waha jo ide me blue border aari woh*/}
-        </button>
+        </button> 
     )
 }
