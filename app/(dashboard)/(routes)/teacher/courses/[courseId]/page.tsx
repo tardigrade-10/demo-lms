@@ -4,6 +4,7 @@ import {auth} from "@clerk/nextjs";
 import { LayoutDashboard } from "lucide-react";
 import { redirect } from 'next/navigation';
 import TitleForm from "./_components/title-form";
+import DescriptionForm from "./_components/description-form";
 
 // params is an object that contains dynamic route parameters extracted from the URL. When you define dynamic routes in using square brackets ([ ]), such as /courses/[courseId], eg. /courses/123, then Next.js will automatically parse the 123 as the courseId parameter. 
 const CourseIdPage = async({
@@ -58,7 +59,14 @@ const CourseIdPage = async({
                             Customize your course
                         </h2>
                     </div>
-                    <TitleForm initialData={course} courseId={course.id}/>
+                    <TitleForm 
+                    initialData={course} 
+                    courseId={course.id}
+                    />
+                    <DescriptionForm
+                    initialData={course} 
+                    courseId={course.id}
+                    />
                 </div>
             </div>
         </div>
