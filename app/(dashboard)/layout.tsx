@@ -4,13 +4,13 @@ import { Sidebar } from "./_components/sidebar";
 const DashboardLayout = ({children}:{children: React.ReactNode}) => {
     return ( 
         <div className="h-full">
-            <div className="h-[80px] md:pl-56 fixed inset-y-0 w-full z-50">
+            <div className="h-[80px] md:pl-56 fixed inset-y-0 w-full z-50"> {/*for navbar*/}
             <Navbar/>
             </div>
-            <div className="hidden md:flex h-full w-56 flex-col fixed insert-y-0 z-50">
+            <div className="hidden md:flex h-full w-56 flex-col fixed insert-y-0 z-50"> {/* medium page size se pehle hidden hai after that it will be visible */}
                 <Sidebar />
             </div>
-            <main className="md:pl-56 h-full">
+            <main className="md:pl-56 pt-[80px] h-full"> {/* sidebar ke aage dikhe content*/}
             {children}
             </main>
         </div>

@@ -7,7 +7,7 @@ export const MobileSidebar = () =>
 {
     return (
         <Sheet>
-            <SheetTrigger className="md:hidden pr-4 hover:opacity-75 transition">
+            <SheetTrigger className="md:hidden pr-4 hover:opacity-75 transition"> {/* medium ke baad no need to show else all the ppts are written*/}
                 <Menu/>
             </SheetTrigger>
             <SheetContent side="left" className="p-0 bg-white">
